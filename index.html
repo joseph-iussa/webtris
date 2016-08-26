@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tetris</title>
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 15px;
+            color: white;
+            background-color: black;
+            font-family: "Space Mono", monospace;
+            display: flex;
+            flex-direction: row;
+        }
+
+        #well {
+            flex: 0 0 auto;
+            position: relative;
+            border: 1px solid white;
+            background-color: rgb(20%, 20%, 20%);
+        }
+
+        #startButton {
+            position: absolute;
+            font-size: 40px;
+            font-family: "Space Mono", monospace;
+        }
+
+        #sidePanel {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            margin-left: 15px;
+        }
+
+        #nextPiece,
+        #score {
+            background-color: rgb(20%, 20%, 20%);
+            border: 1px solid white;
+            flex: 0 0 auto;
+            position: relative;
+            margin-top: 1em;
+        }
+
+        #nextPiece canvas {
+            display: block;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        #score {
+            margin-top: 15px;
+            padding: 5px;
+            width: 16em;
+        }
+
+        #sidePanel h1 {
+            font-size: 20px;
+            font-weight: normal;
+            display: inline-block;
+            border: 1px solid white;
+            background-color: rgb(20%, 20%, 20%);
+            margin: 0;
+            padding: 0.25em;
+            position: absolute;
+            left: 1em;
+            top: -1em;
+        }
+
+        #score table {
+            font-size: 18px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #score tr *:last-child {
+            text-align: right;
+        }
+
+        #score #points {
+            font-size: 1.5em;
+        }
+
+        #level *,
+        #clearedTotal * {
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="well">
+        <canvas></canvas>
+    </section>
+    <section id="sidePanel">
+        <section id="nextPiece">
+            <h1>Next</h1>
+            <canvas></canvas>
+        </section>
+        <section id="score">
+            <div>
+                <table>
+                    <tr id="points">
+                        <td>Score</td>
+                        <td>0</td>
+                    </tr>
+                    <tr id="level">
+                        <td>Level</td>
+                        <td>1</td>
+                    </tr>
+                    <tr id="cleared1">
+                        <td>Cleared 1</td>
+                        <td>0</td>
+                    </tr>
+                    <tr id="cleared2">
+                        <td>Cleared 2</td>
+                        <td>0</td>
+                    </tr>
+                    <tr id="cleared3">
+                        <td>Cleared 3</td>
+                        <td>0</td>
+                    </tr>
+                    <tr id="cleared4">
+                        <td>Cleared 4</td>
+                        <td>0</td>
+                    </tr>
+                    <tr id="clearedTotal">
+                        <td>Cleared Total</td>
+                        <td>0</td>
+                    </tr>
+                    <tr id="highScore">
+                        <td>High Score</td>
+                        <td>0</td>
+                    </tr>
+                    <tr id="highestLevel">
+                        <td>Highest Level</td>
+                        <td>1</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </section>
+<script type="text/javascript" src="game.bundle.js"></script></body>
+
+</html>
