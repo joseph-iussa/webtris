@@ -1,6 +1,7 @@
 var path = require("path");
 var webpack = require("webpack");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CleanWebpackPlugin = require("clean-webpack-plugin");
 
 const IN_PROD = process.env.NODE_ENV === "production";
 
@@ -23,7 +24,8 @@ function getPlugins() {
                 compress: {
                     warnings: false
                 }
-            })
+            }),
+            new CleanWebpackPlugin(["dist"])
         ]);
     }
 
