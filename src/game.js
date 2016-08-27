@@ -4,7 +4,7 @@ import {
     PIECE_LOCK_DELAY, PIECE_LOCK_ANIM_DURATION
 } from './constants';
 import { ALL_TETROMINOS } from './Tetrominos';
-import Well from './well';
+import Well from './Well';
 import RandomBag from './RandomBag';
 import Timer from './Timer';
 import RepeatingTimer from './RepeatingTimer';
