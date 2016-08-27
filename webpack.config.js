@@ -1,3 +1,4 @@
+var path = require("path");
 var webpack = require("webpack");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -41,11 +42,9 @@ module.exports = {
         filename: "[name].bundle.js"
     },
 
-    // Enable sourcemaps for debugging webpack's output.
-    devtool: "source-map",
+    devtool: IN_PROD ? "" : "source-map",
 
     resolve: {
-        // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: ["", ".webpack.js", ".web.js", ".js"]
     },
 
@@ -53,14 +52,18 @@ module.exports = {
         loaders: [
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
+                include: path.resolve(__dirname, "src"),
                 loaders: ['babel-loader']
             }
         ],
 
         preLoaders: [
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-            { test: /\.js$/, loader: "source-map-loader" }
+            {
+                test: /\.js$/,
+                include: path.resolve(__dirname, "src"),
+                loader: "source-map-loader"
+            }
         ]
     },
 
