@@ -8,7 +8,7 @@ then
   exit 0
 fi
 
-rev=$(git rev-parse --short HEAD)
+msg=$(git show -s --oneline HEAD)
 
 cd dist
 
@@ -22,5 +22,5 @@ git fetch upstream && git reset upstream/gh-pages
 touch .
 
 git add -A .
-git commit -m "Game rebuild at ${rev}."
+git commit -m "Rebuild from ${msg}."
 git push -q upstream HEAD:gh-pages
