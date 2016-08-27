@@ -1,5 +1,5 @@
 {
-  "name": "Tetris",
+  "name": "webtris",
   "version": "0.0.1",
   "scripts": {
     "start": "webpack-dev-server --inline --hot",
