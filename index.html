@@ -33,16 +33,23 @@
             flex: 0 0 auto;
             display: flex;
             flex-direction: column;
+            width: 16em;
             margin-left: 15px;
         }
 
-        #nextPiece,
-        #score {
+        #sidePanel > * {
+            font-size: 18px;
             background-color: rgb(20%, 20%, 20%);
             border: 1px solid white;
-            flex: 0 0 auto;
+            /* Give a height so tables inside can stretch to fill height. */
+            flex: 1 0 calc(100% / 3 - (15px * 4));
             position: relative;
-            margin-top: 1em;
+            padding: 5px;
+            margin-top: 15px;
+        }
+
+        #nextPiece {
+            flex-grow: 0;
         }
 
         #nextPiece canvas {
@@ -55,32 +62,31 @@
             right: 0;
         }
 
-        #score {
-            margin-top: 15px;
-            padding: 5px;
-            width: 16em;
-        }
-
         #sidePanel h1 {
+            box-sizing: border-box;
+            height: 30px;
             font-size: 20px;
+            line-height: 100%;
             font-weight: normal;
             display: inline-block;
             border: 1px solid white;
             background-color: rgb(20%, 20%, 20%);
             margin: 0;
-            padding: 0.25em;
+            padding: 5px;
             position: absolute;
-            left: 1em;
-            top: -1em;
+            left: 15px;
+            top: -15px;
         }
 
-        #score table {
-            font-size: 18px;
+        #sidePanel table {
             width: 100%;
+            min-width: 100%;
             height: 100%;
+            min-height: 100%;
+            border-collapse: collapse;
         }
 
-        #score tr *:last-child {
+        #sidePanel tr *:last-child {
             text-align: right;
         }
 
@@ -90,7 +96,17 @@
 
         #level *,
         #clearedTotal * {
-            padding-bottom: 20px;
+            padding-bottom: 0.5em;
+        }
+
+        #controls {
+            margin-top: 30px;
+            padding-top: 15px;
+        }
+
+        .arrow {
+            font-family: Arial, sans-serif;
+            font-size: 1.2em;
         }
     </style>
 </head>
@@ -105,46 +121,73 @@
             <canvas></canvas>
         </section>
         <section id="score">
-            <div>
-                <table>
-                    <tr id="points">
-                        <td>Score</td>
-                        <td>0</td>
-                    </tr>
-                    <tr id="level">
-                        <td>Level</td>
-                        <td>1</td>
-                    </tr>
-                    <tr id="cleared1">
-                        <td>Cleared 1</td>
-                        <td>0</td>
-                    </tr>
-                    <tr id="cleared2">
-                        <td>Cleared 2</td>
-                        <td>0</td>
-                    </tr>
-                    <tr id="cleared3">
-                        <td>Cleared 3</td>
-                        <td>0</td>
-                    </tr>
-                    <tr id="cleared4">
-                        <td>Cleared 4</td>
-                        <td>0</td>
-                    </tr>
-                    <tr id="clearedTotal">
-                        <td>Cleared Total</td>
-                        <td>0</td>
-                    </tr>
-                    <tr id="highScore">
-                        <td>High Score</td>
-                        <td>0</td>
-                    </tr>
-                    <tr id="highestLevel">
-                        <td>Highest Level</td>
-                        <td>1</td>
-                    </tr>
-                </table>
-            </div>
+            <table>
+                <tr id="points">
+                    <td>Score</td>
+                    <td>0</td>
+                </tr>
+                <tr id="level">
+                    <td>Level</td>
+                    <td>1</td>
+                </tr>
+                <tr id="cleared1">
+                    <td>Cleared 1</td>
+                    <td>0</td>
+                </tr>
+                <tr id="cleared2">
+                    <td>Cleared 2</td>
+                    <td>0</td>
+                </tr>
+                <tr id="cleared3">
+                    <td>Cleared 3</td>
+                    <td>0</td>
+                </tr>
+                <tr id="cleared4">
+                    <td>Cleared 4</td>
+                    <td>0</td>
+                </tr>
+                <tr id="clearedTotal">
+                    <td>Cleared Total</td>
+                    <td>0</td>
+                </tr>
+                <tr id="highScore">
+                    <td>High Score</td>
+                    <td>0</td>
+                </tr>
+                <tr id="highestLevel">
+                    <td>Highest Level</td>
+                    <td>1</td>
+                </tr>
+            </table>
+        </section>
+        <section id="controls">
+            <h1>Controls</h1>
+            <table>
+                <tr>
+                    <td>Move Left</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>Move Right</td>
+                    <td>D</td>
+                </tr>
+                <tr>
+                    <td>Move Down Faster</td>
+                    <td>S</td>
+                </tr>
+                <tr>
+                    <td>Rotate <span class="arrow">&cularr;</span></td>
+                    <td><span class="arrow">&#x1F808;</span></td>
+                </tr>
+                <tr>
+                    <td>Rotate <span class="arrow">&curarr;</span></td>
+                    <td><span class="arrow">&#x1F80A;</span></td>
+                </tr>
+                <tr>
+                    <td>Pause</td>
+                    <td>P</td>
+                </tr>
+            </table>
         </section>
     </section>
 </body>
