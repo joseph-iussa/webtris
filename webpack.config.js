@@ -2,6 +2,7 @@ var path = require("path");
 var webpack = require("webpack");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require("clean-webpack-plugin");
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const IN_PROD = process.env.NODE_ENV === "production";
 
@@ -25,7 +26,8 @@ function getPlugins() {
                     warnings: false
                 }
             }),
-            new CleanWebpackPlugin(["dist"])
+            new CleanWebpackPlugin(["dist"]),
+            new CopyWebpackPlugin([{ from: "DejaVuSans.ttf" }])
         ]);
     }
 
